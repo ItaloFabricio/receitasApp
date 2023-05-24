@@ -28,4 +28,14 @@ $searchField.addEventListener('keydown', e => {
     if(e.key === 'Enter'){
         $searchBtn.click();
     }
-})
+});
+
+/**
+ * Tab panel navigation
+ */
+
+const /* {NodeList} */ $tabBtns = document.querySelectorAll('[data-tab-btn]');
+const /* {NodeList} */ $tabPanels = document.querySelectorAll('[data-tab-panel]');
+
+let /* {NodeList} */ [$lastActivePanel] = $tabPanels;
+let /* {NodeList} */ [$lastActiveBtn] = $tabBtns;
