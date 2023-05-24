@@ -18,4 +18,14 @@ $searchBtn.addEventListener("click", function(){
     if($searchField.value){
         window.location = `/recipes.html?q=${$searchField.value}`;
     } 
+});
+
+/**
+ * Search submit when press 'Enter' key
+ */
+
+$searchField.addEventListener('keydown', e => {
+    if(e.key === 'Enter'){
+        $searchBtn.click();
+    }
 })
