@@ -397,6 +397,9 @@ main{
   object-fit: cover;
 }
 
+.section-title{
+  margin-block-end: 12px;
+}
 
 /*-----------------------------------*\
   #COMPONENTS
@@ -530,6 +533,49 @@ main{
   justify-content: space-between;
   gap: 8px;
  }
+
+ .card-link{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  transition: var(--transition-short);
+ }
+
+ .card-link:where(:hover, :focus-visible){
+  color: var(--primary);
+ }
+
+ .card-link::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+ }
+
+ .card :where(.meta-wrapper, .meta-item){
+  display: flex;
+  align-items: center;
+ }
+
+.card .meta-wrapper {
+  justify-content: space-between;
+}
+
+.card .meta-item{
+  gap: 8px;
+}
+
+.card .meta-item .material-symbols-outlined{
+  font-size: 1.8rem;
+}
+
+.saved .bookmark-add,
+.removed .bookmark{
+  display: none;
+}
+
+.saved .bookmark{
+  font-variation-settings: 'FILL' 1;
+}
 
 
 /**
@@ -775,6 +821,12 @@ main{
   display: none;
 }
 
+.tab-panel .btn-secondary{
+  max-width: 100%;
+  margin: 12px 12px;
+  justify-content: center;
+}
+
 
 
 
@@ -782,9 +834,48 @@ main{
   #RECIPE SLIDER
 \*-----------------------------------*/
 
+.slider{
+  --gap: 8px;
+  position: relative;
+  overflow-x: auto;
+  scroll-snap-type: inline mandatory;
+  padding-block-end: 5px;
+}
 
+.slider::-webkit-scrollbar{
+  height: 4px;
+}
 
+.slider::-webkit-scrollbar-thumb{
+  background-color: transparent;
+}
 
+.slider:where(:hover, :focus-visible)::-webkit-scrollbar-thumb{
+  background-color: var(--alpha-10);
+}
+
+.slider-wrapper{
+  display: flex;
+  align-items: stretch;
+  gap: var(--gap);
+  transition: var(--transition-medium);
+}
+
+.slider-item{
+  min-width: calc(50% - 4px);
+  scroll-snap-align: start;
+}
+
+.load-more-card{
+  height: 100%;
+  background-color: var(--primary-container);
+  border-radius: var(--radius-4);
+  border: 1px solid var(--outline);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
 
 /*-----------------------------------*\
   #TAG
